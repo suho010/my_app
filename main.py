@@ -2,28 +2,6 @@ import streamlit as st
 import random
 import base64
 
-# 로컬 이미지 경로 설정
-image_path = "C:/Users/user/Desktop/이수호.jpeg"  # 실제 파일 경로로 변경하세요.
-
-# 이미지 파일을 base64로 인코딩
-with open(image_path, "rb") as img_file:
-    b64 = base64.b64encode(img_file.read()).decode()
-
-# CSS 스타일 설정
-background_style = f"""
-    <style>
-    body {{
-        background-color: #f0f8ff; /* 배경 색상 설정 (예: 옅은 파랑) */
-        font-family: 'Arial', sans-serif;
-    }}
-    .stApp {{
-        background: url(data:image/jpeg;base64,{b64}) no-repeat center center fixed; /* 로컬 이미지 */
-        background-size: cover; /* 이미지가 화면을 덮도록 설정 */
-    }}
-    </style>
-"""
-st.markdown(background_style, unsafe_allow_html=True)
-
 # 앱 제목
 st.title("나의 첫번째 앱")
 st.text('\n\n')
