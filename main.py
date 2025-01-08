@@ -2,7 +2,6 @@ import streamlit as st
 import random
 import urllib.parse
 
-
 background_style = """
     <style>
     body {
@@ -10,7 +9,7 @@ background_style = """
         font-family: 'Arial', sans-serif;
     }
     .stApp {
-        background: url("https://www.example.com/your-image.jpg") no-repeat center center fixed; /* 배경 이미지 URL */
+        background: url("https://your-image-url.com/image.jpg") no-repeat center center fixed; /* 배경 이미지 URL */
         background-size: cover; /* 이미지가 화면을 덮도록 설정 */
     }
     </style>
@@ -78,5 +77,6 @@ if st.button("운세 뽑기"):
         # 공유 링크 제공
         padlet_url = "https://padlet.com/t0025/breakout-link/eXwgvw5lad6y2ybR-jA7rbnJknQJJb498"
         st.markdown(f"[Padlet에 운세 공유하기]({padlet_url})")
+
         
   
