@@ -2,6 +2,21 @@ import streamlit as st
 import random
 import urllib.parse
 
+
+background_style = """
+    <style>
+    body {
+        background-color: #f0f8ff; /* 배경 색상 설정 (예: 옅은 파랑) */
+        font-family: 'Arial', sans-serif;
+    }
+    .stApp {
+        background: url("https://www.example.com/your-image.jpg") no-repeat center center fixed; /* 배경 이미지 URL */
+        background-size: cover; /* 이미지가 화면을 덮도록 설정 */
+    }
+    </style>
+"""
+st.markdown(background_style, unsafe_allow_html=True)
+
 # 앱 제목
 st.title("나의 첫번째 앱")
 st.text('\n\n')
