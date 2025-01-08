@@ -34,7 +34,7 @@ birthday = st.date_input("생일을 선택하세요:")
 # 버튼
 if st.button("운세 보기"):
     if name:
-          with st.empty():
+        with st.empty():
             for _ in range(3):  # 3초 동안 애니메이션을 반복
                 st.write("운세를 뽑는 중...")
                 time.sleep(0.5)  # 0.5초 간격으로 변경
