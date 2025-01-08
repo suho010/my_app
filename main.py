@@ -76,6 +76,4 @@ if st.button("운세 뽑기"):
         encoded_fortune = urllib.parse.quote(fortune_message)
         padlet_url = f"https://padlet.com/t0025/breakout-link/eXwgvw5lad6y2ybR-jA7rbnJknQJJb498?message={encoded_fortune}"
 
-        # Padlet 링크로 공유하기 버튼
-        st.markdow
-
+  
