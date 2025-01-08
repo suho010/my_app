@@ -1,14 +1,12 @@
 import streamlit as st
 import random
+import urllib.parse
 
 st.title("나의 첫번째 앱")
 st.text('\n\n')
 st.write('안녕하세요. 저는 이수호입니다.')
 st.write('저의 이메일 주소는 24_11012@daejin.sen.hs.kr')
 
-import streamlit as st
-import random
-import urllib.parse
 
 # 운세 리스트
 fortunes = [
@@ -36,6 +34,13 @@ birthday = st.date_input("생일을 선택하세요:")
 # 버튼
 if st.button("운세 보기"):
     if name:
+          with st.empty():
+            for _ in range(3):  # 3초 동안 애니메이션을 반복
+                st.write("운세를 뽑는 중...")
+                time.sleep(0.5)  # 0.5초 간격으로 변경
+                st.empty()
+                time.sleep(0.5)
+        
         # 랜덤 운세 선택
         fortune = random.choice(fortunes)
         fortune_message = f"✨ {name}님의 오늘의 운세는: '{fortune}' ✨"
