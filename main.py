@@ -72,8 +72,11 @@ if st.button("운세 뽑기"):
         fortune_message = f"✨ {name}님의 {fortune_category}은: '{fortune}' ✨"
         st.success(fortune_message)
 
-        # 운세를 URL 인코딩하여 Padlet에 공유하기
-        encoded_fortune = urllib.parse.quote(fortune_message)
-        padlet_url = f"https://padlet.com/t0025/breakout-link/eXwgvw5lad6y2ybR-jA7rbnJknQJJb498?message={encoded_fortune}"
-
+        st.markdown("### 운세 Padlet에 공유하기!")
+        st.markdown(f"Padlet에 운세를 공유하려면 아래 링크를 클릭하고, 메시지를 추가하세요!")
+        
+        # 공유 링크 제공
+        padlet_url = "https://padlet.com/t0025/breakout-link/eXwgvw5lad6y2ybR-jA7rbnJknQJJb498"
+        st.markdown(f"[Padlet에 운세 공유하기]({padlet_url})")
+        
   
