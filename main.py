@@ -39,5 +39,4 @@ if st.button("운세 보기"):
         st.warning("이름을 입력해주세요!")
 
 # 추가 요소: 오늘 날짜 표시
-st.sidebar.markdown(f"오늘 날짜: **{st.session_state.get('today_date', None) or st.session_state.setdefault('today_date', st.date.today())}**")
 st.sidebar.write("😊 즐거운 하루 되세요!")
