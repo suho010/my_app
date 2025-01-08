@@ -2,11 +2,11 @@ import streamlit as st
 import random
 import urllib.parse
 
+# 앱 제목
 st.title("나의 첫번째 앱")
 st.text('\n\n')
 st.write('안녕하세요. 저는 이수호입니다.')
 st.write('저의 이메일 주소는 24_11012@daejin.sen.hs.kr')
-
 
 # 운세 리스트
 fortunes = {
@@ -42,31 +42,25 @@ name = st.text_input("이름을 입력하세요:", placeholder="홍길동")
 # 생일 입력
 birthday = st.date_input("생일을 선택하세요:")
 
+# 운세 카테고리 선택
 fortune_category = st.selectbox(
     "운세 카테고리를 선택하세요:",
     options=["연애운", "재물운", "건강운"]
+)
 
-
-# 버튼
+# 버튼 클릭 시 운세 결과 출력
 if st.button("운세 뽑기"):
     if name:
-        # 선택된 테마에 맞는 운세 뽑기
+        # 선택된 카테고리에 맞는 운세 뽑기
         selected_fortunes = fortunes[fortune_category]
         fortune = random.choice(selected_fortunes)
         fortune_message = f"✨ {name}님의 {fortune_category}은: '{fortune}' ✨"
         st.success(fortune_message)
-        
-        
+
+        # 운세를 URL 인코딩하여 Padlet에 공유하기
         encoded_fortune = urllib.parse.quote(fortune_message)
         padlet_url = f"https://padlet.com/t0025/breakout-link/eXwgvw5lad6y2ybR-jA7rbnJknQJJb498?message={encoded_fortune}"
-        
-        # Padlet 링크로 공유 버튼
-        st.markdown("### 운세 Padlet에 공유하기!")
-        st.markdown(f"[Padlet에 운세 공유하기](https://padlet.com/t0025/breakout-link/eXwgvw5lad6y2ybR-jA7rbnJknQJJb498?message={encoded_fortune})")
-        
-    else:
-        st.warning("이름을 입력해주세요!")
 
-# 추가 요소: 오늘 날짜 표시
-st.sidebar.write("😊 즐거운 하루 되세요!")
+        # Padlet 링크로 공유하기 버튼
+        st.markdow
 
