@@ -58,6 +58,10 @@ if st.button("운세 보기"):
         # 카카오톡 공유 링크 (카카오톡의 URL scheme을 사용하여 링크 구성)
         kakao_url = f"https://ka.kakao.com/share?url={encoded_fortune}"
         st.markdown(f"[카카오톡에 공유하기](https://ka.kakao.com/share?url={encoded_fortune})")
+
+         # 패들렛 공유 링크 (카카오톡의 URL scheme을 사용하여 링크 구성)
+        padlet_url = f"https://padlet.com/t0025/breakout-link/eXwgvw5lad6y2ybR-jA7rbnJknQJJb498={encoded_fortune}"
+        st.markdown(f"[패들렛에 공유하기](https://padlet.com/t0025/breakout-link/eXwgvw5lad6y2ybR-jA7rbnJknQJJb498={encoded_fortune})")
         
     else:
         st.warning("이름을 입력해주세요!")
