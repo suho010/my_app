@@ -41,27 +41,12 @@ if st.button("운세 보기"):
         fortune_message = f"✨ {name}님의 오늘의 운세는: '{fortune}' ✨"
         st.success(fortune_message)
         
-        # 공유 링크 생성
         encoded_fortune = urllib.parse.quote(fortune_message)
+        padlet_url = f"https://padlet.com/t0025/breakout-link/eXwgvw5lad6y2ybR-jA7rbnJknQJJb498?message={encoded_fortune}"
         
-        # SNS 공유 버튼
-        st.markdown("### 운세 공유하기!")
-        
-        # 페이스북 공유 링크
-        fb_url = f"https://www.facebook.com/sharer/sharer.php?u={encoded_fortune}"
-        st.markdown(f"[페이스북에 공유하기](https://www.facebook.com/sharer/sharer.php?u={encoded_fortune})")
-        
-        # 트위터 공유 링크
-        twitter_url = f"https://twitter.com/intent/tweet?text={encoded_fortune}"
-        st.markdown(f"[트위터에 공유하기](https://twitter.com/intent/tweet?text={encoded_fortune})")
-
-        # 카카오톡 공유 링크 (카카오톡의 URL scheme을 사용하여 링크 구성)
-        kakao_url = f"https://ka.kakao.com/share?url={encoded_fortune}"
-        st.markdown(f"[카카오톡에 공유하기](https://ka.kakao.com/share?url={encoded_fortune})")
-
-         # 패들렛 공유 링크 (카카오톡의 URL scheme을 사용하여 링크 구성)
-        padlet_url = f"https://padlet.com/t0025/breakout-link/eXwgvw5lad6y2ybR-jA7rbnJknQJJb498={encoded_fortune}"
-        st.markdown(f"[패들렛에 공유하기](https://padlet.com/t0025/breakout-link/eXwgvw5lad6y2ybR-jA7rbnJknQJJb498={encoded_fortune})")
+        # Padlet 링크로 공유 버튼
+        st.markdown("### 운세 Padlet에 공유하기!")
+        st.markdown(f"[Padlet에 운세 공유하기](https://padlet.com/t0025/breakout-link/eXwgvw5lad6y2ybR-jA7rbnJknQJJb498?message={encoded_fortune})")
         
     else:
         st.warning("이름을 입력해주세요!")
