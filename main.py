@@ -1,6 +1,30 @@
 import streamlit as st
 import random
-import base64
+import urllib.parse
+
+# 화려한 배경 설정
+background_style = """
+    <style>
+    body {
+        background: linear-gradient(45deg, #ff69b4, #8a2be2); /* 화려한 그라디언트 배경 */
+        font-family: 'Arial', sans-serif;
+        color: white;
+    }
+    .stApp {
+        background: linear-gradient(45deg, #ff69b4, #8a2be2);
+        background-size: cover;
+        animation: gradientAnimation 5s ease infinite;
+        color: white;
+    }
+
+    @keyframes gradientAnimation {
+        0% { background-position: 0% 0%; }
+        50% { background-position: 100% 100%; }
+        100% { background-position: 0% 0%; }
+    }
+    </style>
+"""
+st.markdown(background_style, unsafe_allow_html=True)
 
 # 앱 제목
 st.title("나의 첫번째 앱")
@@ -33,6 +57,15 @@ fortunes = {
     ]
 }
 
+# 앱 제목
+st.title("📜 재미있는 운세 보기 앱")
+
+# 이름 입력
+name = st.text_input("이름을 입력하세요:", placeholder="홍길동")
+
+# 생일 입력
+birthday = st.date_input("생일을 선택하세요:")
+
 # 운세 카테고리 선택
 fortune_category = st.selectbox(
     "운세 카테고리를 선택하세요:",
@@ -41,7 +74,6 @@ fortune_category = st.selectbox(
 
 # 버튼 클릭 시 운세 결과 출력
 if st.button("운세 뽑기"):
-    name = st.text_input("이름을 입력하세요:", placeholder="홍길동")
     if name:
         # 선택된 카테고리에 맞는 운세 뽑기
         selected_fortunes = fortunes[fortune_category]
@@ -49,11 +81,17 @@ if st.button("운세 뽑기"):
         fortune_message = f"✨ {name}님의 {fortune_category}은: '{fortune}' ✨"
         st.success(fortune_message)
 
+        # Padlet 공유를 위한 안내 메시지
         st.markdown("### 운세 Padlet에 공유하기!")
         st.markdown(f"Padlet에 운세를 공유하려면 아래 링크를 클릭하고, 메시지를 추가하세요!")
         
         # 공유 링크 제공
         padlet_url = "https://padlet.com/t0025/breakout-link/eXwgvw5lad6y2ybR-jA7rbnJknQJJb498"
         st.markdown(f"[Padlet에 운세 공유하기]({padlet_url})")
+        
+    else:
+        st.warning("이름을 입력해주세요!")
 
-  
+# 추가 요소: 오늘 날짜 표시
+st.sidebar.write("😊 즐거운 하루 되세요!")
+
