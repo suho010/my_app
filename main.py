@@ -4,7 +4,7 @@ import base64
 import os
 
 # 이미지 업로드
-uploaded_file = st.file_uploader("C:\Users\user\Desktop\이수호.jpeg", type=["jpg", "jpeg", "png"])
+uploaded_file = st.file_uploader(C:\Users\user\Desktop\이수호.jpeg, type=["jpg", "jpeg", "png"])
 
 # 업로드된 이미지가 있을 경우, 배경 스타일 설정
 if uploaded_file is not None:
