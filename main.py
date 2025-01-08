@@ -22,6 +22,16 @@ background_style = """
         50% { background-position: 100% 100%; }
         100% { background-position: 0% 0%; }
     }
+
+    /* 텍스트 스타일 수정 */
+    .stButton button {
+        color: white;  /* 버튼 글씨 색상 */
+        background-color: rgba(0, 0, 0, 0.5);  /* 버튼 배경 색상 */
+        border-radius: 5px;
+    }
+    .stMarkdown {
+        color: white; /* 텍스트 색상 */
+    }
     </style>
 """
 st.markdown(background_style, unsafe_allow_html=True)
@@ -94,4 +104,3 @@ if st.button("운세 뽑기"):
 
 # 추가 요소: 오늘 날짜 표시
 st.sidebar.write("😊 즐거운 하루 되세요!")
-
