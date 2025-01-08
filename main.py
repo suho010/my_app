@@ -6,6 +6,10 @@ st.text('\n\n')
 st.write('안녕하세요. 저는 이수호입니다.')
 st.write('저의 이메일 주소는 24_11012@daejin.sen.hs.kr')
 
+import streamlit as st
+import random
+import urllib.parse
+
 # 운세 리스트
 fortunes = [
     "오늘은 기분 좋은 일이 생길 거예요!",
@@ -34,9 +38,30 @@ if st.button("운세 보기"):
     if name:
         # 랜덤 운세 선택
         fortune = random.choice(fortunes)
-        st.success(f"✨ {name}님의 오늘의 운세는: '{fortune}' ✨")
+        fortune_message = f"✨ {name}님의 오늘의 운세는: '{fortune}' ✨"
+        st.success(fortune_message)
+        
+        # 공유 링크 생성
+        encoded_fortune = urllib.parse.quote(fortune_message)
+        
+        # SNS 공유 버튼
+        st.markdown("### 운세 공유하기!")
+        
+        # 페이스북 공유 링크
+        fb_url = f"https://www.facebook.com/sharer/sharer.php?u={encoded_fortune}"
+        st.markdown(f"[페이스북에 공유하기](https://www.facebook.com/sharer/sharer.php?u={encoded_fortune})")
+        
+        # 트위터 공유 링크
+        twitter_url = f"https://twitter.com/intent/tweet?text={encoded_fortune}"
+        st.markdown(f"[트위터에 공유하기](https://twitter.com/intent/tweet?text={encoded_fortune})")
+
+        # 카카오톡 공유 링크 (카카오톡의 URL scheme을 사용하여 링크 구성)
+        kakao_url = f"https://ka.kakao.com/share?url={encoded_fortune}"
+        st.markdown(f"[카카오톡에 공유하기](https://ka.kakao.com/share?url={encoded_fortune})")
+        
     else:
         st.warning("이름을 입력해주세요!")
 
 # 추가 요소: 오늘 날짜 표시
 st.sidebar.write("😊 즐거운 하루 되세요!")
+
