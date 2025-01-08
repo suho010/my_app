@@ -1,20 +1,36 @@
 import streamlit as st
 import random
-import urllib.parse
+import base64
+import os
 
-background_style = """
-    <style>
-    body {
-        background-color: #f0f8ff; /* 배경 색상 설정 (예: 옅은 파랑) */
-        font-family: 'Arial', sans-serif;
-    }
-    .stApp {
-        background: url("https://your-image-url.com/image.jpg") no-repeat center center fixed; /* 배경 이미지 URL */
-        background-size: cover; /* 이미지가 화면을 덮도록 설정 */
-    }
-    </style>
-"""
-st.markdown(background_style, unsafe_allow_html=True)
+# 이미지 업로드
+uploaded_file = st.file_uploader("C:\Users\user\Desktop\이수호.jpeg", type=["jpg", "jpeg", "png"])
+
+# 업로드된 이미지가 있을 경우, 배경 스타일 설정
+if uploaded_file is not None:
+    # 파일 이름을 저장
+    image_path = f"uploaded_image.{uploaded_file.type.split('/')[-1]}"
+    with open(image_path, "wb") as f:
+        f.write(uploaded_file.getbuffer())
+
+    # 이미지 파일을 base64로 인코딩
+    with open(image_path, "rb") as img_file:
+        b64 = base64.b64encode(img_file.read()).decode()
+
+    # CSS 스타일 설정
+    background_style = f"""
+        <style>
+        body {{
+            background-color: #f0f8ff; /* 배경 색상 설정 (예: 옅은 파랑) */
+            font-family: 'Arial', sans-serif;
+        }}
+        .stApp {{
+            background: url(data:image/png;base64,{b64}) no-repeat center center fixed; /* 업로드된 이미지 */
+            background-size: cover; /* 이미지가 화면을 덮도록 설정 */
+        }}
+        </style>
+    """
+    st.markdown(background_style, unsafe_allow_html=True)
 
 # 앱 제목
 st.title("나의 첫번째 앱")
